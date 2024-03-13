@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decentralized Freelance Marketplace</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('D:\Black.png.webp'); /* Specify the path to your background image */
+            background-size: cover; /* Cover the entire background */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-position: center; /* Center the image */
+        }
+        /* Add additional CSS styles as needed */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Decentralized Freelance Marketplace</h1>
+        <h2>Post a Service</h2>
+        <form action="/post_service" method="POST">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" class="form-control" id="price" name="price" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Post Service</button>
+        </form>
+
+        <h2>Available Services</h2>
+        <ul>
+            {% for service in services %}
+            <li>
+                <h3>{{ service.title }}</h3>
+                <p>{{ service.description }}</p>
+                <p>Price: ${{ service.price }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
+
